@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MyMusic</title>
+    <title>Uts</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/icon') }}">
