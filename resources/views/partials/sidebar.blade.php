@@ -41,58 +41,23 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
-                <li class="sidebar-item active ">
-                    <a href="index.html" class="sidebar-link">
+                <li class="sidebar-item {{ request()->is('dashboard') ? 'active' : '' }}">
+                    <a href="/dashboard" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class="sidebar-link">
+                <li class="sidebar-item {{ request()->is('products') ? 'active' : '' }}">
+                    <a href="/products" class="sidebar-link">
                         <i class="bi bi-stack"></i>
-                        <span>Components</span>
+                        <span>Barang</span>
                     </a>
-                    <ul class="submenu submenu-closed" style="--submenu-height: 731px;">
-
-                        <li class="submenu-item  ">
-                            <a href="component-accordion.html" class="submenu-link">Accordion</a>
-
-                        </li>
-
-
-                    </ul>
-
-
                 </li>
-
-
-
-                <li class="sidebar-title">Forms &amp; Tables</li>
-
-
-                <li class="sidebar-item  ">
-                    <a href="table.html" class="sidebar-link">
+                <li class="sidebar-item {{ request()->is('users') ? 'active' : '' }}">
+                    <a href="/users" class="sidebar-link">
                         <i class="bi bi-grid-1x2-fill"></i>
-                        <span>Table</span>
+                        <span>Pengguna</span>
                     </a>
-                </li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class="sidebar-link">
-                        <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                        <span>Datatables</span>
-                    </a>
-
-                    <ul class="submenu submenu-closed" style="--submenu-height: 86px;">
-
-                        <li class="submenu-item  ">
-                            <a href="table-datatable.html" class="submenu-link">Datatable</a>
-
-                        </li>
-
-                        <li class="submenu-item  ">
-                            <a href="table-datatable-jquery.html" class="submenu-link">Datatable (jQuery)</a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
         </div>
@@ -104,3 +69,4 @@
         </div>
     </div>
 </div>
+<script></script>
