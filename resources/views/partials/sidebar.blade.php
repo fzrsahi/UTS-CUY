@@ -49,13 +49,13 @@
                 </li>
                 <li class="sidebar-item {{ request()->is('products') ? 'active' : '' }}">
                     <a href="/products" class="sidebar-link">
-                        <i class="bi bi-stack"></i>
+                        <i class="bi bi-basket-fill"></i>
                         <span>Barang</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->is('users') ? 'active' : '' }}">
                     <a href="/users" class="sidebar-link">
-                        <i class="bi bi-grid-1x2-fill"></i>
+                        <i class="bi bi-people-fill"></i>
                         <span>Pengguna</span>
                     </a>
                 </li>
