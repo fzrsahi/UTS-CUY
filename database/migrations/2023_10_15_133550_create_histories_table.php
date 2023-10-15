@@ -22,7 +22,6 @@ return new class extends Migration
             $table->integer("qty");
             $table->foreignIdFor(user::class)->constrained();
             $table->foreignIdFor(supplier::class)->constrained();
-            $table->timestamp('added_on')->nullable()->default(time());
             $table->timestamps();
         });
     }
