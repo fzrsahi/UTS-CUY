@@ -65,6 +65,12 @@
                         <span>Pengguna</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->is('suppliers') ? 'active' : '' }}">
+                    <a href="/suppliers" class="sidebar-link">
+                        <i class="bi bi-person-raised-hand"></i>
+                        <span>Supplier</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
