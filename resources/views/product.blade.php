@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <div class="page-heading">
-        <h3>Manajemen Produk</h3>
+        <h3>Daftar Produk </h3>
     </div>
     <div class="page-content">
         <section class="row">

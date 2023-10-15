@@ -15,4 +15,9 @@ class ProductController extends Controller
     {
         return view("product");
     }
+
+    public function showAllProductsManagement()
+    {
+        return view("product-management");
+    }
 }

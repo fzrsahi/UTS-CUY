@@ -50,7 +50,13 @@
                 <li class="sidebar-item {{ request()->is('products') ? 'active' : '' }}">
                     <a href="/products" class="sidebar-link">
                         <i class="bi bi-basket-fill"></i>
-                        <span>Barang</span>
+                        <span>Produk</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->is('products-management') ? 'active' : '' }}">
+                    <a href="/products-management" class="sidebar-link">
+                        <i class="bi bi-basket3"></i>
+                        <span>Manajemen Produk</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->is('users') ? 'active' : '' }}">

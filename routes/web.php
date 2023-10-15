@@ -22,4 +22,5 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, "showDashboard"]);
 Route::get('/products', [ProductController::class, "showAllProducts"]);
+Route::get('/products-management', [ProductController::class, "showAllProductsManagement"]);
 Route::get('/users', [UserController::class, "showAllUsers"]);

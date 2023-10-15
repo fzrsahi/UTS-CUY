@@ -7,8 +7,8 @@
     <title>Uts</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.dark.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/icon') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery.dataTables.min.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -29,14 +29,19 @@
     </div>
     <script src="{{ asset('assets/js/initTheme.js') }}"></script>
     <script src="{{ asset('assets/js/dark.js') }}"></script>
-    <script src="{{ asset('assets/js/sidebar.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/sidebar.js') }}"></script> --}}
     <script src="{{ asset('assets/js/rainbow-custom.min.js') }}"></script>
     <script src="{{ asset('assets/js/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/apexcharts.js') }}"></script>
-    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/apexcharts.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard.js') }}"></script> --}}
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-3.7.0.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+    <script>
+        new DataTable('#example');
+    </script>
 </body>
 
 </html>
