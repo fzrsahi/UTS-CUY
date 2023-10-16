@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Product;
+use App\Models\product;
 
 class ProductController extends Controller
 {
@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function showAllProducts()
     {
         $products = Product::all();
-        return view("product",[
+        return view("product", [
             'title' => 'Product List',
             'products' => $products
         ]);
@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function showAllProductsManagement()
     {
         $products = Product::all();
-        return view("product-management",[
+        return view("product-management", [
             'title' => 'Product List',
             'products' => $products
         ]);

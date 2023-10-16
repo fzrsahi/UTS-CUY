@@ -11,7 +11,7 @@ class UserController extends Controller
     function showAllUsers()
     {
         $users = User::all();
-        return view("user",[
+        return view("user", [
             'title' => 'User List',
             'users' => $users
         ]);
