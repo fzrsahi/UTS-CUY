@@ -53,14 +53,14 @@ class HistorySeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        DB::table('histories')->insert([
-            'product_id' => 5,
-            'status' => 'Barang Telah Di Input Oleh Supplier 5',
-            'qty' => 35,
-            'user_id' => 5,
-            'supplier_id' => 5,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        // DB::table('histories')->insert([
+        //     'product_id' => 5,
+        //     'status' => 'Barang Telah Di Input Oleh Supplier 5',
+        //     'qty' => 35,
+        //     'user_id' => 5,
+        //     'supplier_id' => 5,
+        //     'created_at' => now(),
+        //     'updated_at' => now(),
+        // ]);
     }
 }

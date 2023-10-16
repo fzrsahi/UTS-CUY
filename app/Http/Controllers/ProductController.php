@@ -13,11 +13,19 @@ class ProductController extends Controller
      */
     public function showAllProducts()
     {
-        return view("product");
+        $products = Product::all();
+        return view("product",[
+            'title' => 'Product List',
+            'products' => $products
+        ]);
     }
 
     public function showAllProductsManagement()
     {
-        return view("product-management");
+        $products = Product::all();
+        return view("product-management",[
+            'title' => 'Product List',
+            'products' => $products
+        ]);
     }
 }

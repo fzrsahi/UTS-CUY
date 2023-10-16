@@ -19,42 +19,20 @@
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>Nama</th>
-                                                <th>Email</th>
+                                                <th>Username</th>
                                                 <th>Role</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-bold-500">Michael Right</td>
-                                                <td>$15/hr</td>
-                                                <td class="text-bold-500">UI/UX</td>
-                                                <td><a href="#"><i class="bi bi-pencil-fill"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-bold-500">Morgan Vanblum</td>
-                                                <td>$13/hr</td>
-                                                <td class="text-bold-500">Graphic concepts</td>
-                                                <td><a href="#"><i class="bi bi-pencil-fill"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-bold-500">Tiffani Blogz</td>
-                                                <td>$15/hr</td>
-                                                <td class="text-bold-500">Animation</td>
-                                                <td><a href="#"><i class="bi bi-pencil-fill"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-bold-500">Ashley Boul</td>
-                                                <td>$15/hr</td>
-                                                <td class="text-bold-500">Animation</td>
-                                                <td><a href="#"><i class="bi bi-pencil-fill"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-bold-500">Mikkey Mice</td>
-                                                <td>$15/hr</td>
-                                                <td class="text-bold-500">Animation</td>
-                                                <td><a href="#"><i class="bi bi-pencil-fill"></i></a></td>
-                                            </tr>
+                                            @foreach ($users as $user)
+                                                <tr>
+                                                    <td class="text-bold-500">{{ $user['name'] }}</td>
+                                                    <td>{{ $user['username'] }}</td>
+                                                    <td>{{ $user['role'] }}</td>
+                                                    <td><a href="#"><i class="bi bi-pencil-fill"></i></a></td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

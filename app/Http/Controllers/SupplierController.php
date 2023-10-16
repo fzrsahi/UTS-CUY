@@ -13,7 +13,11 @@ class SupplierController extends Controller
      */
     public function showAllSuppliers()
     {
-        return view("supplier");
+        $suppliers = supplier::all();
+        return view("supplier",[
+            'title' => 'Supplier List',
+            'suppliers' => $suppliers
+        ]);
     }
 
     /**
