@@ -4,11 +4,13 @@
         <h3>Selamat Datang, Admin! </h3>
     </div>
     <div class="card m-3">
-        <div class="card-header bg-danger">
-            <h5 class="text-white">
-                Peringatan : Mie Goreng Sudah Mau Habis, Stok Tersisa 3 Pcs
-            </h5>
-        </div>
+        @foreach ($productLessThan3 as $product)
+            <div class="card-header bg-danger m-1">
+                <h5 class="text-white">
+                    Peringatan : {{ $product->nama }} Sudah Mau Habis, Stok Tersisa {{ $product->qty }} Pcs
+                </h5>
+            </div>
+        @endforeach
     </div>
     <div class="page-content">
         <div class="d-flex justify-content-between">
@@ -22,7 +24,7 @@
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                 <h6 class="text-muted font-semibold">Jumlah Produk</h6>
-                                <h6 class="font-extrabold mb-0">112.000</h6>
+                                <h6 class="font-extrabold mb-0">{{ $totalProducts }}</h6>
                             </div>
                         </div>
                     </div>
@@ -38,7 +40,7 @@
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                 <h6 class="text-muted font-semibold">Jumlah Pengguna</h6>
-                                <h6 class="font-extrabold mb-0">183.000</h6>
+                                <h6 class="font-extrabold mb-0">{{ $totalUsers }}</h6>
                             </div>
                         </div>
                     </div>
@@ -53,9 +55,54 @@
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Following</h6>
-                                <h6 class="font-extrabold mb-0">80.000</h6>
+                                <h6 class="text-muted font-semibold">Jumlah Supplier</h6>
+                                <h6 class="font-extrabold mb-0">{{ $totalSuppliers }}</h6>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card m-3 mb-5">
+        <div class="card-body">
+            <div class="row" id="table-bordered">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Monitoring Status Produk</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Daftar Masuk Dan Keluarnya Barang
+                            </p>
+                        </div>
+                        <!-- table bordered -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Produk</th>
+                                        <th>Status</th>
+                                        <th>Jumlah</th>
+                                        <th>Karyawan Penerima</th>
+                                        <th>Supplier</th>
+                                        <th>Waktu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($histories as $history)
+                                        <tr>
+                                            <td>{{ $history->product_name }}</td>
+                                            <td>{{ $history->status }}</td>
+                                            <td>{{ $history->qty }}</td>
+                                            <td>{{ $history->user_name }}</td>
+                                            <td>{{ $history->supplier_name }}</td>
+                                            <td>{{ $history->created_at }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -68,16 +115,58 @@
                 <div id="products-chart"></div>
             </div>
         </div>
-
         <div class="card">
             <div class="card-body">
                 <div id="users-chart"></div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-body">
-                <div id="suppliers-chart"></div>
-            </div>
-        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var optionsProducts = {
+            series: [{{ $totalDrinks }}, {{ $totalFoods }}],
+            chart: {
+                width: 450,
+                type: 'pie',
+            },
+            labels: ['Makanan', 'Minuman'],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
+        var chartProducts = new ApexCharts(document.querySelector("#products-chart"), optionsProducts);
+        chartProducts.render();
+
+        var optionsUsers = {
+            series: [{{ $totalAdmins }}, {{ $totalEmployees }}],
+            chart: {
+                width: 450,
+                type: 'pie',
+            },
+            labels: ['Admin', 'Karyawan'],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
+        var chartUsers = new ApexCharts(document.querySelector("#users-chart"), optionsUsers);
+        chartUsers.render();
+    </script>
 @endsection

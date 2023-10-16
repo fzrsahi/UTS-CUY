@@ -42,77 +42,7 @@
     <script>
         new DataTable('#example');
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script>
-        var optionsProducts = {
-            series: [44, 55, 13, 43, 22],
-            chart: {
-                width: 380,
-                type: 'pie',
-            },
-            labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }]
-        };
 
-        var chartProducts = new ApexCharts(document.querySelector("#products-chart"), optionsProducts);
-        chartProducts.render();
-
-        var optionsUsers = {
-            series: [44, 55, 13, 43, 22],
-            chart: {
-                width: 380,
-                type: 'pie',
-            },
-            labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }]
-        };
-
-        var chartUsers = new ApexCharts(document.querySelector("#users-chart"), optionsUsers);
-        chartUsers.render();
-
-        var optionsSuppliers = {
-            series: [44, 55, 13, 43, 22],
-            chart: {
-                width: 380,
-                type: 'pie',
-            },
-            labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }]
-        };
-
-        var chartSuppliers = new ApexCharts(document.querySelector("#suppliers-chart"), optionsSuppliers);
-        chartSuppliers.render();
-    </script>
 </body>
 
 </html>
