@@ -65,13 +65,15 @@
                         <span>Supplier</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ request()->is('users') ? 'active' : '' }}">
-                    <a href="/users" class="sidebar-link">
-                        <i class="bi bi-people-fill"></i>
-                        <span>Pengguna</span>
-                    </a>
-                </li>
-                
+                @if (Auth::user()->role == 'admin')
+                    <li class="sidebar-item {{ request()->is('users') ? 'active' : '' }}">
+                        <a href="/users" class="sidebar-link">
+                            <i class="bi bi-people-fill"></i>
+                            <span>Pengguna</span>
+                        </a>
+                    </li>
+                @endif
+
             </ul>
         </div>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">

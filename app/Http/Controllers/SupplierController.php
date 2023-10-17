@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\supplier;
+use App\Models\Supplier;
 use App\Http\Requests\StoresupplierRequest;
 use App\Http\Requests\UpdatesupplierRequest;
 
@@ -13,8 +13,8 @@ class SupplierController extends Controller
      */
     public function showAllSuppliers()
     {
-        $suppliers = supplier::all();
-        return view("supplier",[
+        $suppliers = Supplier::all();
+        return view("supplier", [
             'title' => 'Supplier List',
             'suppliers' => $suppliers
         ]);

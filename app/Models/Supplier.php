@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class supplier extends Model
+class Supplier extends Authenticatable
 {
     protected $guarded = ['id'];
-    
+
     public function history()
     {
-        return $this->hasMany(history::class);
+        return $this->hasMany(History::class);
     }
 }

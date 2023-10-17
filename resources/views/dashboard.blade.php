@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <div class="page-heading">
-        <h3>Selamat Datang, Admin! </h3>
+        <h3>Selamat Datang, {{ Auth::user() ? Auth::user()->username : 'Hacker' }} </h3>
     </div>
     <div class="card m-3">
         @foreach ($productLessThan3 as $product)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
@@ -18,11 +19,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect("/dashboard");
+    return redirect("/login");
 });
 
-Route::get('/dashboard', [DashboardController::class, "showDashboard"]);
-Route::get('/products', [ProductController::class, "showAllProducts"]);
-Route::get('/products-management', [ProductController::class, "showAllProductsManagement"]);
-Route::get('/users', [UserController::class, "showAllUsers"]);
-Route::get('/suppliers', [SupplierController::class, "showAllSuppliers"]);
+Route::get('/dashboard', [DashboardController::class, "showDashboard"])->middleware("auth");
+Route::get('/products', [ProductController::class, "showAllProducts"])->middleware("auth");
+Route::get('/products-management', [ProductController::class, "showAllProductsManagement"])->middleware("auth");
+Route::get('/users', [UserController::class, "showAllUsers"])->middleware("auth");
+Route::get('/suppliers', [SupplierController::class, "showAllSuppliers"])->middleware("auth");
+Route::get('/login', [AuthController::class, "index"])->name("login")->middleware("guest");
+Route::post('/login', [AuthController::class, "authenticate"]);

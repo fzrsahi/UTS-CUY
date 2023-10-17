@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\history;
-use App\Models\product;
-use App\Models\supplier;
-use App\Models\user;
+use App\Models\History;
+use App\Models\Product;
+use App\Models\Supplier;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     function showDashboard()
     {
-        $totalDrinks = product::where('kategori', 'minuman')->count();
-        $totalFoods = product::where('kategori', 'makanan')->count();
-        $totalAdmins = user::where('role', 'admin')->count();
-        $totalEmployees = user::where('role', 'karyawan')->count();
-        $productLessThan3 = product::where('qty', '<', 3)->get();
-        $totalProducts = product::count();
-        $totalUsers = user::count();
-        $totalSuppliers = supplier::count();
+        $totalDrinks = Product::where('kategori', 'minuman')->count();
+        $totalFoods = Product::where('kategori', 'makanan')->count();
+        $totalAdmins = User::where('role', 'admin')->count();
+        $totalEmployees = User::where('role', 'karyawan')->count();
+        $productLessThan3 = Product::where('qty', '<', 3)->get();
+        $totalProducts = Product::count();
+        $totalUsers = User::count();
+        $totalSuppliers = Supplier::count();
 
-        $histories = history::join('users', 'histories.user_id', '=', 'users.id')
+        $histories = History::join('users', 'histories.user_id', '=', 'users.id')
             ->join('products', 'histories.product_id', '=', 'products.id')
             ->join('suppliers', 'histories.supplier_id', '=', 'suppliers.id')
             ->select('histories.*', 'users.name as user_name', 'products.nama as product_name', 'suppliers.nama as supplier_name')
