@@ -13,7 +13,7 @@
         @endforeach
     </div>
     <div class="page-content">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between flex-wrap">
             <div class="col-6 col-lg-3 col-md-6 m-3">
                 <div class="card">
                     <div class="card-body px-4 py-4-5">
@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-around flex-wrap">
         <div class="card">
             <div class="card-body">
                 <div id="products-chart"></div>

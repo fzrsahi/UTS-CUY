@@ -10,7 +10,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Daftar Pengguna Website</h4>
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <h5 class="card-title">Daftar Pengguna Website</h5>
+                                    <button class="btn btn-primary" onclick="alert('Fitur Belum Selesai Dikembangkan, Ditunggu Updatenya !!!!')">Tambahkan User</button>
+                                </div>
                             </div>
                             <div class="card-content">
                                 <!-- table head dark -->
@@ -30,7 +33,9 @@
                                                     <td class="text-bold-500">{{ $user['name'] }}</td>
                                                     <td>{{ $user['username'] }}</td>
                                                     <td>{{ $user['role'] }}</td>
-                                                    <td><a href="#"><i class="bi bi-pencil-fill"></i></a></td>
+                                                    <td onclick="alert('Fitur Belum Selesai Dikembangkan, Ditunggu Updatenya !!!!')">
+                                                        <a href="#"><i class="bi bi-pencil-fill"></i></a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

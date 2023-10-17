@@ -10,7 +10,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Daftar Supplier</h4>
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <h5 class="card-title">Daftar Supplier</h5>
+                                    <button class="btn btn-primary" onclick="alert('Fitur Belum Selesai Dikembangkan, Ditunggu Updatenya !!!!')">Tambahkan Supplier</button>
+                                </div>
                             </div>
                             <div class="card-content">
                                 <!-- table head dark -->
@@ -31,9 +34,8 @@
                                                     <td>{{ $supplier['nomor_telepon'] }}</td>
                                                     <td>{{ $supplier['alamat'] }}</td>
                                         
-                                                    <td>
-                                                        <a href="#">
-                                                        <i class="bi bi-pencil-square"></i></a>
+                                                    <td onclick="alert('Fitur Belum Selesai Dikembangkan, Ditunggu Updatenya !!!!')">
+                                                        <a href="#"><i class="bi bi-pencil-fill"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach

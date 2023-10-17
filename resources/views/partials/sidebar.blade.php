@@ -59,18 +59,19 @@
                         <span>Manajemen Produk</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ request()->is('users') ? 'active' : '' }}">
-                    <a href="/users" class="sidebar-link">
-                        <i class="bi bi-people-fill"></i>
-                        <span>Pengguna</span>
-                    </a>
-                </li>
                 <li class="sidebar-item {{ request()->is('suppliers') ? 'active' : '' }}">
                     <a href="/suppliers" class="sidebar-link">
                         <i class="bi bi-person-raised-hand"></i>
                         <span>Supplier</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->is('users') ? 'active' : '' }}">
+                    <a href="/users" class="sidebar-link">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Pengguna</span>
+                    </a>
+                </li>
+                
             </ul>
         </div>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
