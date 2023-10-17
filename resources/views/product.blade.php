@@ -4,20 +4,19 @@
         <h3>Daftar Produk </h3>
     </div>
     <div class="page-content">
-        <section class="row">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
+        <section >
+            
+                <div>
+                    <div class="card text-center justify-content-center mx-auto">
                         <div class="card-header">
                             <h5 class="card-title">Daftar Produk</h5>
                         </div>
                         <div class="card-body">
-                            <div class="row gallery" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                            <div class="d-flex flex-wrap justify-content-center" data-bs-toggle="modal" data-bs-target="#galleryModal">
                                 @foreach ($products as $product)
-                                    <div class="card col-6 col-sm-6 col-lg-3 mt-2 mt-md-0 mb-md-0 mb-2  ">
-                                        <div class="card-content">
-                                            <img src="{{ $product->photo }}" alt="{{ $product->nama }}"
-                                                style="width:200px; height:145px; object-fit:cover;">
+                                    <div class="card h-100 col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-5 g-0" style="box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; max-width:20em; margin:1.5em">
+                                        <div class="card-content ">
+                                            <img class="card-img-top border rounded" src="{{ $product->photo }}" alt="{{ $product->nama }}" style="width: 100%; object-fit:cover; height:15em ">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $product->nama }}</h5>
                                                 <p class="card-text">
@@ -34,7 +33,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </section>
     </div>
