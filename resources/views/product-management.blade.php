@@ -38,10 +38,13 @@
                                                 <td>{{ $product['qty'] }}</td>
                                                 <td>{{ $product['deskripsi'] }}</td>
                                                 <td>{{ $product['kategori'] }}</td>
-                                                <td
-                                                    onclick="alert('Fitur Belum Selesai Dikembangkan, Ditunggu Updatenya !!!!')">
-                                                    <a href="#"><i class="bi bi-pencil-fill"></i></a>
+                                                <td>
+                                                    <a href="/products-management/{{$product['id']}}"class="bi bi-pencil-fill"></a>
+                                                    <span>or</span>
+                                                    <a href="/delete-product/{{$product['id']}}" class="bi bi-trash text-danger delete" data-id="{{ $product->id }}"data-nama="{{ $product->nama }}""></a>
                                                 </td>
+                                                 
+                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -123,4 +126,64 @@
             </div>
         </div>
     </div>
-@endsection
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+  <script>
+
+
+
+
+$('.delete').click(function(){
+
+var productid = $(this).attr('data-id');
+var nama = $(this).attr('data-nama');
+  swal({
+       title: "Are you sure?",
+        text: "File "+nama+" akan di hapus",
+          icon: "warning",
+            buttons: true,
+              dangerMode: true,
+      })
+.then((willDelete) => {
+  if (willDelete) {
+    window.location = "/delete-product/"+productid+""
+    swal("File Kamu Terhapus!", {
+      icon: "success",
+    });
+  } else {
+    swal("File Tidak Jadi Di Hapus!!!", {
+      icon: "warning",
+    });
+  }
+});
+});
+
+
+       
+    </script>
+    
+    <script>
+      @if (Session::has('sukses'))
+      toastr.success(" {{ Session::get('sukses') }}")
+      @endif
+ 
+    </script>
+</html>
+
+    @endsection

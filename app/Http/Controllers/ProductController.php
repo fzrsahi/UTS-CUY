@@ -29,6 +29,7 @@ class ProductController extends Controller
             'title' => 'Product List',
             'products' => $products
         ]);
+        
     }
 
     public function insertProduct(Request $request)
@@ -41,4 +42,29 @@ class ProductController extends Controller
         }
         return redirect()->route("products-management")->with("success", "Data berhasil ditambahkan");
     }
+
+    public function editproduct($id){
+        $data= Product::find($id);
+        return view('product-edit', compact('data'));
+    }
+
+    public function updateproduct(Request $request, $id){
+        $data= Product::find($id);
+        $data->update($request->all());
+        if($request->hasFile('photo')){
+            // dd($request-> file('foto'));
+            $request-> file('photo')->move('product-photos/', $request->file('photo')->getClientOriginalName());
+            $data->photo = $request->file('photo')->getClientOriginalName();
+            $data->save();
+        }
+        $data->save();
+        return redirect()->route('products-management')->with('sukses','Data Sudah Ter Edit !!!');
+    }
+
+    public function delete ($id){
+        $data= Product::find($id);
+        $data-> delete();
+        return redirect()->route('products-management')->with('sukses','Data Telah Di Hapus !!!');
+    }
+
 }
