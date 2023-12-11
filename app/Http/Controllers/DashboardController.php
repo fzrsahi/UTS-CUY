@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $totalFoods = Product::where('kategori', 'makanan')->count();
         $totalAdmins = User::where('role', 'admin')->count();
         $totalEmployees = User::where('role', 'karyawan')->count();
-        $productLessThan3 = Product::where('qty', '<', 3)->get();
+        $productLessThan3 = Product::where('qty', '<', 4)->get();
         $totalProducts = Product::count();
         $totalUsers = User::count();
         $totalSuppliers = Supplier::count();

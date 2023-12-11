@@ -24,7 +24,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, "showDashboard"])->middleware("auth");
 Route::get('/products', [ProductController::class, "showAllProducts"])->middleware("auth");
-Route::get('/products-management', [ProductController::class, "showAllProductsManagement"])->middleware("auth");
+Route::post('/products-management', [ProductController::class, "insertProduct"])->middleware("auth");
+Route::get('/products-management', [ProductController::class, "showAllProductsManagement"])->middleware("auth")->name("products-management");
 Route::get('/users', [UserController::class, "showAllUsers"])->middleware("auth");
 Route::get('/suppliers', [SupplierController::class, "showAllSuppliers"])->middleware("auth");
 Route::get('/login', [AuthController::class, "index"])->name("login")->middleware("guest");
