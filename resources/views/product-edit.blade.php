@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <div class="pDeskripsi-heading">
-        <h3>Manajemen Produk </h3>
+        <h3>Edit Produk </h3>
     </div>
     <form action="/updateproduct/{{$data->id}}" method="POST" enctype="multipart/form-data">
         @csrf
