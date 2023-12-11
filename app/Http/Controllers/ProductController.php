@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 
 
+
 class ProductController extends Controller
 {
     /**
@@ -40,7 +41,7 @@ class ProductController extends Controller
             $data->photo = $request->file('photo')->getClientOriginalName();
             $data->save();
         }
-        return redirect()->route("products-management")->with("success", "Data berhasil ditambahkan");
+        return redirect()->route("products-management")->with("sukses", "Data berhasil ditambahkan");
     }
 
     public function editproduct($id){

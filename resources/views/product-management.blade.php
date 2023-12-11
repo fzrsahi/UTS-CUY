@@ -1,7 +1,24 @@
 @extends('layouts.main')
 @section('container')
-    <div class="pDeskripsi-heading">
-        <h3>Manajemen Produk </h3>
+<!doctype html>
+<html lang="en">
+    
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    <h3>Manajemen Produk </h3>
+  </head>
+
+<div class="pDeskripsi-heading">
+        
+        
     </div>
     <div class="page-content">
         <section class="row">
@@ -27,6 +44,7 @@
                                             <th>Stok</th>
                                             <th>Deskripsi</th>
                                             <th>Kategori</th>
+                                            <th>Update At</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -38,12 +56,12 @@
                                                 <td>{{ $product['qty'] }}</td>
                                                 <td>{{ $product['deskripsi'] }}</td>
                                                 <td>{{ $product['kategori'] }}</td>
+                                                <td>{{ $product->created_at->diffForHumans()}}</td>
                                                 <td>
                                                     <a href="/products-management/{{$product['id']}}"class="bi bi-pencil-fill"></a>
                                                     <span>or</span>
-                                                    <a href="/delete-product/{{$product['id']}}" class="bi bi-trash text-danger delete" data-id="{{ $product->id }}"data-nama="{{ $product->nama }}""></a>
+                                                    <a href="#" class="bi bi-trash text-danger delete" data-id="{{ $product->id }}"data-nama="{{ $product->nama }}""></a>
                                                 </td>
-                                                 
                                                 
                                             </tr>
                                         @endforeach
@@ -87,29 +105,29 @@
                         <label for="product-name">Nama Produk : </label>
                         <div class="form-group">
                             <input id="product-name" type="text" placeholder="Nama Produk" class="form-control"
-                                name="nama">
+                                name="nama" required>
                         </div>
                         <label for="harga">Harga : </label>
                         <div class="form-group">
-                            <input id="harga" type="number" placeholder="Harga" class="form-control" name="harga">
+                            <input id="harga" type="number" placeholder="Harga" class="form-control" name="harga" required>
                         </div>
                         <label for="stok">Stok : </label>
                         <div class="form-group">
-                            <input id="stok" type="number" placeholder="Stok" class="form-control" name="qty">
+                            <input id="stok" type="number" placeholder="Stok" class="form-control" name="qty" required>
                         </div>
                         <label for="kategori">Kategori: </label>
                         <div class="form-group">
-                            <input id="kategori" type="text" placeholder="Kategori" class="form-control"
+                            <input id="kategori" type="text" placeholder="Kategori" class="form-control" required
                                 name="kategori">
                         </div>
                         <label for="deskripsi">Deskripsi: </label>
                         <div class="form-group">
                             <input id="deskripsi" type="text" placeholder="Deskrpisi" class="form-control"
-                                name="deskripsi">
+                                name="deskripsi" required>
                         </div>
                         <label for="photo">Foto: </label>
                         <div class="form-group">
-                            <input type="file" name="photo" class="form-control">
+                            <input type="file" name="photo" class="form-control" required>
                         </div>
                     </div>
                     <div class="modal-footer">
