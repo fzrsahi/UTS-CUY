@@ -1,9 +1,40 @@
 @extends('layouts.main')
 @section('container')
     <div class="page-heading">
+        <div class="float-end">
+            <div class="dropdown">
+                <a href="#" id="topbarUserDropdown"
+                    class="user-dropdown d-flex align-items-center dropend dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <div class="text">
+                        <h6 class="user-dropdown-name">
+                            <i class="bi bi-bell-fill text-danger ">{{ count($productLessThan3) }} </i> | Notifikasi
+                        </h6>
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="topbarUserDropdown" style="">
+                    <li><a class="dropdown-item" href="#">Notifikasi</a></li>
+                    <div class="card m-3">
+                        @foreach ($productLessThan3 as $product)
+                            <div class="card-header bg-danger m-1">
+                                <h5 class="text-white">
+                                    {{ $product->nama }} Stok Tersisa {{ $product->qty }} Pcs
+                                </h5>
+                            </div>
+                        @endforeach
+                    </div>
+                </ul>
+            </div>
+
+            <!-- Burger button responsive -->
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </div>
         <h3>Selamat Datang, {{ Auth::user() ? Auth::user()->username : 'Hacker' }} </h3>
+
     </div>
-    <div class="card m-3">
+    {{-- <div class="card m-3">
         @foreach ($productLessThan3 as $product)
             <div class="card-header bg-danger m-1">
                 <h5 class="text-white">
@@ -11,7 +42,7 @@
                 </h5>
             </div>
         @endforeach
-    </div>
+    </div> --}}
     <div class="page-content">
         <div class="d-flex justify-content-between flex-wrap">
             <div class="col-6 col-lg-3 col-md-6 m-3">
@@ -124,12 +155,12 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         var optionsProducts = {
-            series: [{{ $totalDrinks }}, {{ $totalFoods }}],
+            series: [{{ $totalDrinks }}, {{ $totalFoods }}, {{ $othersCategory }}],
             chart: {
                 width: 450,
                 type: 'pie',
             },
-            labels: ['Makanan', 'Minuman'],
+            labels: ['Makanan', 'Minuman', "Lainnya"],
             responsive: [{
                 breakpoint: 480,
                 options: {

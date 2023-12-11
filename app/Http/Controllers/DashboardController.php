@@ -14,6 +14,7 @@ class DashboardController extends Controller
     {
         $totalDrinks = Product::where('kategori', 'minuman')->count();
         $totalFoods = Product::where('kategori', 'makanan')->count();
+        $othersCategory = Product::whereNotIn('kategori', ['makanan', 'minuman'])->count();
         $totalAdmins = User::where('role', 'admin')->count();
         $totalEmployees = User::where('role', 'karyawan')->count();
         $productLessThan3 = Product::where('qty', '<', 4)->get();
@@ -36,6 +37,7 @@ class DashboardController extends Controller
             "totalFoods" => $totalFoods,
             "totalAdmins" => $totalAdmins,
             "totalEmployees" => $totalEmployees,
+            "othersCategory" => $othersCategory
         ]);
     }
 }
