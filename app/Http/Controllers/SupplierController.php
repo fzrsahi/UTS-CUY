@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Supplier;
 use App\Http\Requests\StoresupplierRequest;
 use App\Http\Requests\UpdatesupplierRequest;
+use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
@@ -67,4 +68,17 @@ class SupplierController extends Controller
     {
         //
     }
+
+    public function insertSupplier(Request $request)
+    {
+        $data = Supplier::create($request->all());
+        return redirect()->route("suppliers")->with("sukses", "Data berhasil ditambahkan");
+    }
+
+    public function deleteSupplier($id){
+        $data= Supplier::find($id);
+        $data-> delete();
+        return redirect()->route('suppliers')->with('sukses','Data Telah Di Hapus !!!');
+    }
+
 }
