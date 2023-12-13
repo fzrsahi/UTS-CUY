@@ -103,8 +103,15 @@
                         </div>
                         <label for="kategori">Kategori: </label>
                         <div class="form-group">
-                            <input id="kategori" type="text" placeholder="Kategori" class="form-control" required
+                            <!-- <input id="kategori" type="text" placeholder="Kategori" class="form-control" required
+                                name="kategori"> -->
+                                <select class="form-select" aria-label="Default select example" type="text" placeholder="Kategori" class="form-control" required
                                 name="kategori">
+                                <option selected disabled>Pilih Kategori</option>
+                                <option value="1">Makanan</option>
+                                <option value="2">Minuman</option>
+                                <option value="3">Bahan Baku</option>
+</select>
                         </div>
                         <label for="deskripsi">Deskripsi: </label>
                         <div class="form-group">

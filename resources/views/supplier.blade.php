@@ -41,7 +41,7 @@
 
                                                     <td>
                                                         <a
-                                                            href="/products-management/{{ $supplier['id'] }}"class="bi bi-pencil-fill"></a>
+                                                            href="/suppliers/{{ $supplier['id'] }}"class="bi bi-pencil-fill"></a>
                                                         <span>or</span>
                                                         <a href="#" class="bi bi-trash text-danger delete"
                                                             data-id="{{ $supplier->id }}"data-nama="{{ $supplier->nama }}""></a>

@@ -18,10 +18,21 @@
             <div class="form-group">
                 <input id="stok" type="number" placeholder="Stok" class="form-control" name="qty" value="{{$data->qty}}">
             </div>
-            <label for="kategori">Kategori: </label>
+            <!-- <label for="kategori">Kategori: </label>
             <div class="form-group">
                 <input id="kategori" type="text" placeholder="Kategori" name="kategori" class="form-control"
-                    value="{{$data->kategori}}">
+                    value="{{$data->kategori}}"> -->
+                    <label for="kategori">Kategori: </label>
+                        <div class="form-group">
+                            <!-- <input id="kategori" type="text" placeholder="Kategori" class="form-control" required
+                                name="kategori"> -->
+                                <select class="form-select" aria-label="Default select example" type="text" placeholder="Kategori" class="form-control" required
+                                name="kategori">
+                                <option selected disabled value="{{$data->kategori}}">{{$data->kategori}}</option>
+                                <option value="1">Makanan</option>
+                                <option value="2">Minuman</option>
+                                <option value="3">Bahan Baku</option>
+</select>
             </div>
             <label for="deskripsi">Deskripsi: </label>
             <div class="form-group">

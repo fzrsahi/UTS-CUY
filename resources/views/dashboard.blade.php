@@ -4,7 +4,7 @@
         <div class="float-end">
             <div class="dropdown">
                 <a href="#" id="topbarUserDropdown"
-                    class="user-dropdown d-flex align-items-center dropend dropdown-toggle" data-bs-toggle="dropdown"
+                    class="user-dropdown d-flex align-items-center  dropend dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <div class="text">
                         <h6 class="user-dropdown-name">
@@ -16,7 +16,7 @@
                     <li><a class="dropdown-item" href="#">Notifikasi</a></li>
                     <div class="card m-3">
                         @foreach ($productLessThan3 as $product)
-                            <div class="card-header bg-danger m-1">
+                            <div class="card-body bg-danger m-1">
                                 <h5 class="text-white">
                                     {{ $product->nama }} Stok Tersisa {{ $product->qty }} Pcs
                                 </h5>

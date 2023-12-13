@@ -22,4 +22,17 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+
+    public function insertUsers(Request $request)
+    {
+        $data = User::create($request->all());
+        // dd($request);
+        return redirect()->route("users")->with("sukses", "Data berhasil ditambahkan");
+    }
+    public function deleteUsers($id){
+        $data= User::find($id);
+        $data-> delete();
+        return redirect()->route('users')->with('sukses','Data Telah Di Hapus !!!');
+    }
+    
 }

@@ -26,7 +26,7 @@ Route::get('/dashboard', [DashboardController::class, "showDashboard"])->middlew
 Route::get('/products', [ProductController::class, "showAllProducts"])->middleware("auth");
 Route::post('/products-management', [ProductController::class, "insertProduct"])->middleware("auth");
 Route::get('/products-management', [ProductController::class, "showAllProductsManagement"])->middleware("auth")->name("products-management");
-Route::get('/users', [UserController::class, "showAllUsers"])->middleware("auth");
+Route::get('/users', [UserController::class, "showAllUsers"])->middleware("auth")->name("users");
 Route::get('/suppliers', [SupplierController::class, "showAllSuppliers"])->middleware("auth")->name("suppliers");
 Route::get('/login', [AuthController::class, "index"])->name("login")->middleware("guest");
 Route::post('/login', [AuthController::class, "authenticate"]);
@@ -35,3 +35,7 @@ Route::post('/updateproduct/{id}', [ProductController::class, 'updateproduct'])-
 Route::get('/delete-product/{id}', [ProductController::class, 'delete'])->name('delete');
 Route::post('/suppliers', [SupplierController::class, "insertsupplier"])->middleware("auth");
 Route::get('/delete-supplier/{id}', [SupplierController::class, 'deleteSupplier'])->name('deletesupplier');
+Route::get('/suppliers/{id}', [SupplierController::class, "editsupplier"])->middleware("auth");
+Route::post('/updatesupplier/{id}', [SupplierController::class, 'updatesupplier'])->name('updatesupplier');
+Route::post('/users', [UserController::class, "insertUsers"])->middleware("auth");
+Route::get('/delete-users/{id}', [UserController::class, 'deleteUsers'])->name('deleteusers');

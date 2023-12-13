@@ -81,4 +81,15 @@ class SupplierController extends Controller
         return redirect()->route('suppliers')->with('sukses','Data Telah Di Hapus !!!');
     }
 
+    public function editSupplier($id){
+        $data= Supplier::find($id);
+        return view('supplier-edit', compact('data'));
+    }
+
+    public function updateSupplier(Request $request, $id){
+        $data= Supplier::find($id);
+        $data->update($request->all());
+        $data->save();
+        return redirect()->route('suppliers')->with('sukses','Data Sudah Ter Edit !!!');
+    }
 }
