@@ -39,3 +39,6 @@ Route::get('/suppliers/{id}', [SupplierController::class, "editsupplier"])->midd
 Route::post('/updatesupplier/{id}', [SupplierController::class, 'updatesupplier'])->name('updatesupplier');
 Route::post('/users', [UserController::class, "insertUsers"])->middleware("auth");
 Route::get('/delete-users/{id}', [UserController::class, 'deleteUsers'])->name('deleteusers');
+Route::get('/userview/{id}', [UserController::class, "viewUsers"])->middleware("auth");
+Route::get('/users/{id}', [UserController::class, "editUsers"])->middleware("auth");
+Route::post('/updateusers/{id}', [UserController::class, 'updateusers'])->name('updateusers');

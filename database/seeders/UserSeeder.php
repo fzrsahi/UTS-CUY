@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'password' => Hash::make('admin123'),
             'role' => "admin",
+            'foto' => "",
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
             'username' => 'karyawan1',
             'password' => Hash::make('karyawan1'),
             'role' => "karyawan",
+            'foto' => "",
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -40,6 +42,7 @@ class UserSeeder extends Seeder
             'username' => 'karyawan2',
             'password' => Hash::make('karyawan2'),
             'role' => "karyawan",
+            'foto' => "",
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -50,6 +53,7 @@ class UserSeeder extends Seeder
             'username' => 'karyawan3',
             'password' => Hash::make('karyawan3'),
             'role' => "karyawan",
+            'foto' => "",
             'created_at' => now(),
             'updated_at' => now(),
         ]);

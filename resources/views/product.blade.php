@@ -22,7 +22,7 @@
                                             src="{{ asset('product-photos/' . $row->photo) }}"
                                             style="width: 100%; object-fit:cover; height:15em ">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $row->nama }}</h5>foto
+                                            <h5 class="card-title">{{ $row->nama }}</h5>
                                             <p class="card-text">
                                                 {{ $row->deskripsi }}
                                             </p>

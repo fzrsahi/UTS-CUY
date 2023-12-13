@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="d-flex flex-wrap justify-content-between">
-                                    <h5 class="card-title">Daftar Pengguna Website</h5>
+                                    <h5 class="card-title">Daftar User Website</h5>
                                     <button type="button" class="btn btn-outline-success bg-success text-white"
                                         data-bs-toggle="modal" data-bs-target="#inlineForm">
                                         Tambah User
@@ -37,7 +37,7 @@
                                                     <td>{{ $user['username'] }}</td>
                                                     <td>{{ $user['role'] }}</td>
                                                     <td>
-                                                        <a href ="#" class="bi bi-pencil-fill"> </a>
+                                                        <a href ="/users/{{ $user['id'] }}" class="bi bi-pencil-fill"> </a>
                                                         @if ($user['role'] === "karyawan")
                                                         <span>or</span>
                                                         <a href="#" class="bi bi-trash text-danger delete"
@@ -88,8 +88,27 @@
                         <label for="stok">Password : </label>
                         <div class="form-group">
                             <input id="password" type="password" placeholder="Password" class="form-control hide" name="password"
-                                required>
+                                required >
+                                <a type="button"  id="showPasswordBtn" class="bi bi-eye" onclick="togglePassword()"></a>
                         </div>
+                        <label for="photo">Foto: </label>
+                        <div class="form-group">
+                            <input type="file" name="foto" class="form-control" required>
+                        </div>
+                        <script>
+                            function togglePassword() {
+                                var passwordInput = document.getElementById("password");
+                                var showPasswordBtn = document.getElementById("showPasswordBtn");
+                        
+                                if (passwordInput.type === "password") {
+                                    passwordInput.type = "text";
+                                    showPasswordBtn.textContent = "";
+                                } else {
+                                    passwordInput.type = "password";
+                                    showPasswordBtn.textContent = "";
+                                }
+                            }
+                        </script>
                         <!-- <label for="stok">Konfirmasi Password : </label>
                         <div class="form-group">
                             <input id="password" type="text" placeholder="Konfirmasi Password" class="form-control" name="qty"
@@ -120,6 +139,44 @@
             </div>
 
         </section>
+        <div class="page-content">
+            <section>
+    
+                <div>
+                    <div class="card text-center justify-content-center mx-auto">
+                        <div class="card-header">
+                            <h5 class="card-title">Foto User</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-wrap justify-content-center" data-bs-toggle="modal"
+                                data-bs-target="#galleryModal">
+                                @foreach ($users as $user => $row)
+                                    <div class="card h-100 col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-5 g-0"
+                                        style="box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; max-width:20em; margin:1.5em">
+                                        <div class="card-content ">
+                                            <img class="card-img-top border rounded"
+                                                src="{{ asset('user-photos/' . $row->foto) }}"
+                                                style="width: 100%; object-fit:cover; height:15em ">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $row->username }}</h5>
+                                                <p class="card-text">
+                                                    {{ $row->deskripsi }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <ul class="list-group list-group-flush mb-5">
+                                            <li class="list-group-item">Nama : {{ $row->name }}</li>
+                                            <li class="list-group-item">Role : {{ $row->role }}</li>
+                                            <a href="/userview/{{ $row['id'] }}" class="text-center btn btn-primary">View</a>
+                                        </ul>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
