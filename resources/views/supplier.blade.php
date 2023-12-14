@@ -12,7 +12,7 @@
                             <div class="card-header">
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <h5 class="card-title">Daftar Supplier</h5>
-                                    <button type="button" class="btn btn-outline-success bg-success text-white"
+                                    <button type="button" class="btn btn-outline-success bg-primary text-white"
                                         data-bs-toggle="modal" data-bs-target="#inlineForm">
                                         Tambah Supplier
                                     </button>
@@ -45,8 +45,8 @@
                                                         <span>or</span>
                                                         <a href="#" class="bi bi-trash text-danger delete"
                                                             data-id="{{ $supplier->id }}"data-nama="{{ $supplier->nama }}""></a>
-                                                                    </td>
-                                                                </tr>
+                                                                                </td>
+                                                                            </tr>
      @endforeach
                                         </tbody>
                                     </table>
