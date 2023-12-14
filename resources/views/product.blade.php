@@ -23,14 +23,27 @@
                                             style="width: 100%; object-fit:cover; height:15em ">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $row->nama }}</h5>
-                                            <p class="card-text">
+                                            <p class="card-text mb-1">
                                                 {{ $row->deskripsi }}
                                             </p>
+                                            <li class="list-group-item">Price : Rp.{{ $row->harga }}</li>
+
                                         </div>
                                     </div>
                                     <ul class="list-group list-group-flush mb-5">
-                                        <li class="list-group-item">Price : {{ $row->harga }}</li>
-                                        <li class="list-group-item">Stok : {{ $row->qty }} Pcs</li>
+                                        @if ($row->qty <= 3)
+                                            <li class="list-group-item fw-bolder fs-2 border ">Stok :
+                                                <span class="text-danger">
+                                                    {{ $row->qty }}
+                                                    Pcs
+                                                </span>
+                                            @else
+                                            <li class="list-group-item fw-bolder fs-2 border">Stok :
+                                                {{ $row->qty }}
+
+                                                Pcs
+                                        @endif
+                                        </li>
                                         <a href="/products/{{ $row->id }}"class="text-center btn btn-primary">View</a>
                                     </ul>
                                 </div>
