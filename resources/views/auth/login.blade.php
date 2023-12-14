@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Uts</title>
+    <title>UAS</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.iconly.css') }}">
@@ -21,7 +21,7 @@
                 <a href="#" class="mt-2">
                     <img src="{{ asset('img/Logo_atmajaya.gif') }}" alt="Logo" style="height: 170px">
                 </a>
-                <h2 class="mt-5 ms-5">UTS Pemrograman Web Lanjut</h2>
+                <h2 class="mt-5 ms-5">UAS Pemrograman Web Lanjut</h2>
             </div>
             <h1 class="auth-title">Masuk.</h1>
             <p class="auth-subtitle mb-5">Silahkan Masuk dengan akun anda yang terdaftar</p>
@@ -47,7 +47,7 @@
                 <div class="form-group position-relative has-icon-left mb-4">
                     <input type="password" class="form-control form-control-xl" placeholder="Password" required
                         name="password">
-                        
+
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
