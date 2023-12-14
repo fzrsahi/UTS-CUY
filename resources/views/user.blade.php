@@ -18,15 +18,18 @@
                                     </button>
                                 </div>
                             </div>
+                            
                             <div class="card-content">
                                 <!-- table head dark -->
                                 <div class="table-responsive">
                                     <table class="table mb-0">
-                                        <thead class="thead-dark">
+                                        <table id="example" class="table table-striped" style="width:100%">
+                                        <thead class="thead-dark text-center">
                                             <tr>
                                                 <th>Nama</th>
                                                 <th>Username</th>
                                                 <th>Role</th>
+                                                <th>Update At</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -36,6 +39,7 @@
                                                     <td class="text-bold-500">{{ $user['name'] }}</td>
                                                     <td>{{ $user['username'] }}</td>
                                                     <td>{{ $user['role'] }}</td>
+                                                    <td>{{ $user->created_at->diffForHumans() }}</td>
                                                     <td>
                                                         <a href ="/users/{{ $user['id'] }}" class="bi bi-pencil-fill"> </a>
                                                         @if ($user['role'] === "karyawan")

@@ -73,6 +73,12 @@
                         </a>
                     </li>
                 @endif
+                <li class="sidebar-item {{ request()->is('login') ? 'active' : '' }}">
+                    <a href="/login" class="sidebar-link">
+                        <i class="bi bi-power text-danger text-center"></i>
+                        <span class="text-danger">Log Out</span>
+                    </a>
+                </li>
 
             </ul>
         </div>
