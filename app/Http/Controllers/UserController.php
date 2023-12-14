@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -25,13 +26,18 @@ class UserController extends Controller
 
     public function insertUsers(Request $request)
     {
-        $data = User::create($request->all());
         if ($request->hasFile('foto')) {
             $request->file('foto')->move('user-photos/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
-            $data->save();
+            $userData = [
+                'role' => $request->input('role'),
+                'name' => $request->input('name'),
+                'username' => $request->input('username'),
+                'password' => Hash::make($request->input('password')), // Hash the password
+                'foto' => $request->file('foto')->getClientOriginalName(), // Set 'foto' during creation
+            ];
         }
-        // dd($request);
+
+        $data = User::create($userData);
         return redirect()->route("users")->with("sukses", "Data berhasil ditambahkan");
     }
     public function deleteUsers($id)

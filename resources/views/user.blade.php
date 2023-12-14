@@ -95,6 +95,7 @@
                                 required >
                                 <a type="button"  id="showPasswordBtn" class="bi bi-eye" onclick="togglePassword()"></a>
                         </div>
+                        <input type="hidden" name="hashed_password" id="hashed_password">
                         <label for="photo">Foto: </label>
                         <div class="form-group">
                             <input type="file" name="foto" class="form-control" required>
@@ -110,6 +111,21 @@
                                 } else {
                                     passwordInput.type = "password";
                                     showPasswordBtn.textContent = "";
+                                }
+                            }
+                            function hashPassword() {
+                                var passwordInput = document.getElementById("password");
+                                var showPasswordBtn = document.getElementById("showPasswordBtn");
+                                var hashedPasswordInput = document.getElementById("hashed_password");
+
+                                if (passwordInput.type === "password") {
+                                    passwordInput.type = "text";
+                                    showPasswordBtn.textContent = "Hide";
+                                    hashedPasswordInput.value = ''; // Clear the hashed password when showing the actual password
+                                } else {
+                                    passwordInput.type = "password";
+                                    showPasswordBtn.textContent = "Show";
+                                    hashedPasswordInput.value = bcrypt(passwordInput.value);
                                 }
                             }
                         </script>
