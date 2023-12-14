@@ -31,8 +31,7 @@
                                     <ul class="list-group list-group-flush mb-5">
                                         <li class="list-group-item">Price : {{ $row->harga }}</li>
                                         <li class="list-group-item">Stok : {{ $row->qty }} Pcs</li>
-                                        <a
-                                                        href="/products-management"class="text-center btn btn-primary">View</a>
+                                        <a href="/products/{{ $row->id }}"class="text-center btn btn-primary">View</a>
                                     </ul>
                                 </div>
                             @endforeach

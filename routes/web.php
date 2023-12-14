@@ -42,3 +42,5 @@ Route::get('/delete-users/{id}', [UserController::class, 'deleteUsers'])->name('
 Route::get('/userview/{id}', [UserController::class, "viewUsers"])->middleware("auth");
 Route::get('/users/{id}', [UserController::class, "editUsers"])->middleware("auth");
 Route::post('/updateusers/{id}', [UserController::class, 'updateusers'])->name('updateusers');
+Route::get("/logout", [AuthController::class, "logout"]);
+Route::get('/products/{id}', [ProductController::class, "getProductById"])->middleware("auth");

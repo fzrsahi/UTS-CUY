@@ -31,7 +31,21 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </div>
-        <h3>Selamat Datang, {{ Auth::user() ? Auth::user()->username : 'Hacker' }} </h3>
+        <h3 class="d-flex">
+            Selamat Datang
+            <div class="dropdown ms-2">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ Auth::user() ? Auth::user()->username : 'Hacker' }}
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+
+
+
+        </h3>
 
     </div>
     {{-- <div class="card m-3">

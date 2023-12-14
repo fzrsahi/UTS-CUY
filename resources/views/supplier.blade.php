@@ -26,7 +26,7 @@
                                             <tr>
                                                 <th>Nama</th>
                                                 <th>Email</th>
-                                                <th>Role</th>
+                                                <th>Alamat</th>
                                                 <th>Update At</th>
                                                 <th>Aksi</th>
                                             </tr>
@@ -45,8 +45,8 @@
                                                         <span>or</span>
                                                         <a href="#" class="bi bi-trash text-danger delete"
                                                             data-id="{{ $supplier->id }}"data-nama="{{ $supplier->nama }}""></a>
-                                                                    </td>
-                                                                </tr>
+                                                                        </td>
+                                                                    </tr>
      @endforeach
                                         </tbody>
                                     </table>
