@@ -4,8 +4,12 @@
         <div class="card mb-4 text-center" style="max-width: 5140px; height: 302px;">
             <div class="row g-0 ">
                 <div class="col-md-4 bg-dark" style="height: 500px;">
-                    <img src="{{ asset('product-photos/' . $product->photo) }}"
-                        class="card-img-top mw-100 h-100 object-fit-fill " alt="...">
+                    @if (filter_var($product->photo, FILTER_VALIDATE_URL))
+                        <img src="{{ $product->photo }}" class="card-img-top mw-100 h-100 object-fit-fill " alt="...">
+                    @else
+                        <img src="{{ asset('product-photos/' . $product->photo) }}"
+                            class="card-img-top mw-100 h-100 object-fit-fill " alt="...">
+                    @endif
                 </div>
                 <div class="col-md-8 bg-light">
                     <div class="card-body  text-dark">

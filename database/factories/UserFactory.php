@@ -15,14 +15,18 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
+        $role = $this->faker->randomElement(['admin', 'karyawan']);
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'name' => $this->faker->name,
+            'username' => ($role === 'admin') ? 'admin' : $this->faker->userName,
+            'password' => bcrypt('password123'), // Ganti dengan password yang kamu inginkan
+            'role' => $role,
+            'foto' => $this->faker->imageUrl(200, 200), // Contoh link foto dari Faker
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 
